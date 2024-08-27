@@ -1,0 +1,77 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "886c7c631aeb7e400bb9589783df1ff5",
+    "packages": [
+        {
+            "name": "bitapps/wp-validator",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Bit-Apps-Pro/wp-validator.git",
+                "reference": "9d29785718350c4fed8d9b16989175ce86f6343c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Bit-Apps-Pro/wp-validator/zipball/9d29785718350c4fed8d9b16989175ce86f6343c",
+                "reference": "9d29785718350c4fed8d9b16989175ce86f6343c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "pestphp/pest": "^2.18",
+                "phpcompatibility/php-compatibility": "*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BitApps\\WPValidator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "BitApps",
+                    "email": "developer@bitcode.pro"
+                }
+            ],
+            "description": "WordPress Validation and Sanitization Library",
+            "homepage": "https://bitapps.pro",
+            "keywords": [
+                "form-validation",
+                "input-sanitization",
+                "input-validation",
+                "php-validation",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/Bit-Apps-Pro/wp-validator/issues",
+                "source": "https://github.com/Bit-Apps-Pro/wp-validator"
+            },
+            "time": "2024-07-25T10:32:42+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
