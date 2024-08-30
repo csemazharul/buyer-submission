@@ -7,8 +7,8 @@ $router = new Router();
 
 $router->get('/', BuyerController::class, 'index');
 
-$router->get('/buyer-create', BuyerController::class, 'create');
+$router->get('/buyer/create', BuyerController::class, 'create');
 
-$router->post('/buyer-store', BuyerController::class, 'store');
+$router->post('/buyer/store', BuyerController::class, 'store');
 
 $router->dispatch();

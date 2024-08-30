@@ -25,7 +25,7 @@
            </form>
         </div>
         <div class="col-md-2 text-end">
-            <a href="<?=getenv('APP_URL') . 'buyer-create'?>" class="btn btn-primary mt-4">New Buyer Create</a>
+            <a href="<?=getenv('APP_URL') . '/buyer/create'?>" class="btn btn-primary mt-4">New Buyer Create</a>
         </div>
     </div>
 
