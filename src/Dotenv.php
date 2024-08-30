@@ -2,10 +2,6 @@
 
 namespace App;
 
-// if (!\defined('ABSPATH')) {
-//     exit;
-// }
-
 final class Dotenv
 {
     public static function load($path = '')

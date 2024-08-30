@@ -12,6 +12,6 @@
     }
   ],
   "require": {
-    "bitapps/wp-validator": "^1.1"
-  }
+    "bitapps/wp-validator": "^1.1" 
+   }
 }
