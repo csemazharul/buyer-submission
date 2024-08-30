@@ -49,8 +49,8 @@ class BuyerController
         $isMultipleSubmissions = $buyerService->checkMultipleSubmissions($cookieName);
 
         if ($isMultipleSubmissions) {
-            echo json_encode(['message' => 'You have already submitted a form in the last 24 hours!', 'success' => false]);
-            return;
+            // echo json_encode(['message' => 'You have already submitted a form in the last 24 hours!', 'success' => false]);
+            // return;
         }
 
         $data = $buyerService->validatedData();

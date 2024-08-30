@@ -40,6 +40,7 @@ class BuyerService
             'note' => ['required', 'string', 'max:30'],
             'city' => ['required', 'string'],
             'phone' => ['required', 'string'],
+            'entry_by' => ['required', 'numeric'],
         ];
 
         $validator = $validator->make($_POST, $rules);

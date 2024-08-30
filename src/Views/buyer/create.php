@@ -107,9 +107,6 @@
 
     <script>
 
-
-
-
       function checkPhoneNumberStartWith(phone) {
         //start not with 880 then add 880
 
@@ -144,7 +141,8 @@
         });
 
 
-    const url = "<?=getenv('APP_URL') . 'buyer-store'?>";
+    const url = "<?=getenv('APP_URL') . '/buyer/store'?>";
+
     const form = $('#buyer-submission');
 
     form.on('submit', function(e) {
@@ -165,7 +163,7 @@
                 if (parseData.success) {
 
                     alert(parseData.message);
-                    window.location.href = '<?=getenv('APP_URL') . 'buyer-create'?>';
+                    window.location.href = '<?=getenv('APP_URL') . '/buyer/create'?>';
                 } else {
                     if (parseData.errors) {
                         console.log('Validation failed!');
