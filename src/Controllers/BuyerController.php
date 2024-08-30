@@ -2,54 +2,80 @@
 
 namespace App\Controllers;
 
-use App\Controller;
+use App\Models\Buyer;
+use App\Services\BuyerService;
+use App\Utility;
 
-class BuyerController extends Controller
+class BuyerController
 {
-    // Display a listing of the Buyer.
+
+    /*
+     * Show the list of buyers.
+     * @return array
+     */
+
     public function index()
     {
-        echo "Displaying a list of buyers.";
+
+        $startDate = $_GET['start_date'] ?? null;
+
+        $endDate = $_GET['end_date'] ?? null;
+
+        $buyers = (new Buyer)->all($startDate, $endDate);
+
+        Utility::view('buyer/index', ['buyers' => $buyers]);
     }
 
-    // Show the form for creating a new buyer.
+    /*
+     * Show the form for creating a new buyer.
+     */
+
     public function create()
     {
-        $this->render('buyer/create');
+        Utility::view('buyer/create');
     }
 
-    // Store a newly created buyer in storage.
+    /*
+     * Store a newly created buyer in the database.
+     */
+
     public function store()
     {
 
-    }
+        $cookieName = 'form_submission_time';
 
-    // Display the specified buyer.
-    public function show($id)
-    {
-        // Retrieve and display a single buyer by ID
-        echo "Displaying buyer with ID: $id";
-    }
+        $buyerService = new BuyerService();
 
-    // Show the form for editing the specified buyer.
-    public function edit($id)
-    {
-        // Show a form for editing the specified buyer
-        echo "Showing form to edit buyer with ID: $id";
-    }
+        $isMultipleSubmissions = $buyerService->checkMultipleSubmissions($cookieName);
 
-    // Update the specified buyer in storage.
-    public function update($id, $requestData)
-    {
-        // Process the form data and update the buyer
-        echo "Updating buyer with ID: $id using data: " . json_encode($requestData);
-    }
+        if ($isMultipleSubmissions) {
+            echo json_encode(['message' => 'You have already submitted a form in the last 24 hours!', 'success' => false]);
+            return;
+        }
 
-    // Remove the specified buyer from storage.
-    public function destroy($id)
-    {
-        // Delete the specified buyer
-        echo "Deleting buyer with ID: $id";
+        $data = $buyerService->validatedData();
+
+        $data['buyer_ip'] = $_SERVER['REMOTE_ADDR'];
+
+        $data['entry_by'] = 1;
+
+        $data['items'] = implode(',', $data['items']);
+
+        $data['hash_key'] = hash('sha512', $data['receipt_id'] . 'salt');
+
+        $data['entry_at'] = date('Y-m-d');
+
+        $inserted = (new Buyer)->create($data);
+
+        if ($inserted) {
+            echo json_encode(['message' => 'Buyer created successfully!', 'success' => true]);
+            setcookie($cookieName, time(), time() + 86400, "/");
+
+            return;
+        } else {
+            echo json_encode(['message' => 'Failed to create buyer!', 'success' => false]);
+            return;
+        }
     }
 
 }
