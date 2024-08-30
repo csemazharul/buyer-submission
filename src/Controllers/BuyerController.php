@@ -57,8 +57,6 @@ class BuyerController
 
         $data['buyer_ip'] = $_SERVER['REMOTE_ADDR'];
 
-        $data['entry_by'] = 1;
-
         $data['items'] = implode(',', $data['items']);
 
         $data['hash_key'] = hash('sha512', $data['receipt_id'] . 'salt');
@@ -68,8 +66,9 @@ class BuyerController
         $inserted = (new Buyer)->create($data);
 
         if ($inserted) {
-            echo json_encode(['message' => 'Buyer created successfully!', 'success' => true]);
             setcookie($cookieName, time(), time() + 86400, "/");
+
+            echo json_encode(['message' => 'Buyer created successfully!', 'success' => true]);
 
             return;
         } else {
