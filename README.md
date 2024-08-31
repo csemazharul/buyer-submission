@@ -23,7 +23,7 @@ Follow these steps to set up the project on your local machine:
 3. Run the following command to clone the repository:
 
 ```bash
-git clone https://github.com/csemazharul/buyer-registration.git
+git clone https://github.com/csemazharul/buyer-submission.git
 ```
 
 ## 2. Install Dependencies
@@ -31,7 +31,7 @@ git clone https://github.com/csemazharul/buyer-registration.git
 Navigate into the project directory and install the PHP dependencies using Composer:
 
 ```bash
-cd buyer-registration
+cd buyer-submission
 ```
 
 ```bash
@@ -48,7 +48,7 @@ cp .env.example .env
 
 #### Application URL
 
-Set the `APP_URL` variable in the `.env` file to the URL of the application on your local machine. For example: ``http://buyer-registration.xyz``.
+Set the `APP_URL` variable in the `.env` file to the URL of the application on your local machine. For example: ``http://buyer-submission.xyz``.
 
 
 #### Database configuration

@@ -1,5 +1,5 @@
 {
-  "name": "csemazharul/buyer-registration",
+  "name": "csemazharul/buyer-submission",
   "autoload": {
     "psr-4": {
       "App\\": "src/"
