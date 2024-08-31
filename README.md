@@ -48,7 +48,8 @@ cp .env.example .env
 
 #### Application URL
 
-Set the `APP_URL` variable in the `.env` file to the URL of the application:
+Set the `APP_URL` variable in the `.env` file to the URL of the application on your local machine. For example: ``http://buyer-registration.xyz``.
+```bash
 
 ## 4. Database configuration
 
