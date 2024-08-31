@@ -16,7 +16,9 @@ class BuyerService
     public function checkMultipleSubmissions($cookieName): bool
     {
         if (isset($_COOKIE[$cookieName])) {
+
             $lastSubmissionTime = $_COOKIE[$cookieName];
+
             $currentTime = time();
 
             // Check if 24 hours have passed since the last submission
