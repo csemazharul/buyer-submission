@@ -15,14 +15,16 @@ class Buyer
 
     public function all($startDate = null, $endDate = null): array
     {
-        $sql = 'SELECT * FROM buyers ORDER BY id DESC';
+        $sql = 'SELECT * FROM buyers';
 
         if ($startDate && $endDate) {
-            $sql .= " WHERE entry_at BETWEEN ? AND ?";
+            $sql .= " WHERE entry_at BETWEEN ? AND ? ORDER BY id DESC";
             $stmt = $this->dbConnection->prepare($sql);
             $stmt->execute([$startDate, $endDate]);
             return $stmt->fetchAll();
         }
+
+        $sql .= " ORDER BY id DESC";
 
         $stmt = $this->dbConnection->query($sql);
 
