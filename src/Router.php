@@ -25,16 +25,19 @@ class Router
     public function dispatch()
     {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
+
+        $cleanedUri = str_replace('//', '/', $uri);
+
         $method = $_SERVER['REQUEST_METHOD'];
 
-        if (array_key_exists($uri, $this->routes[$method])) {
-            $controller = $this->routes[$method][$uri]['controller'];
-            $action = $this->routes[$method][$uri]['action'];
+        if (array_key_exists($cleanedUri, $this->routes[$method])) {
+            $controller = $this->routes[$method][$cleanedUri]['controller'];
+            $action = $this->routes[$method][$cleanedUri]['action'];
 
             $controller = new $controller();
             $controller->$action();
         } else {
-            throw new \Exception("No route found for URI: $uri");
+            throw new \Exception("No route found for URI: $cleanedUri");
         }
     }
 }
