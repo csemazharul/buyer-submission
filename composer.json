@@ -12,8 +12,8 @@
     }
   ],
   "require": {
-    "bitapps/wp-validator": "^1.1" 
-   },
+    "mazed/php-validator-sanitizer": "^1.0"
+  },
   "require-dev": {
     "pestphp/pest": "^2.35"
   },

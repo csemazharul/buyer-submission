@@ -108,7 +108,6 @@
     <script>
 
       function checkPhoneNumberStartWith(phone) {
-        //start not with 880 then add 880
 
         if(phone.startsWith('880')){
             return phone;

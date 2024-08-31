@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use BitApps\WPValidator\Validator;
+use Mazed\PHPValidator\Validator;
 
 class BuyerService
 {

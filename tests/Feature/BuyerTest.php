@@ -22,7 +22,7 @@ it('fail-validate', function () {
     expect($responseData->errors)->not->toBeEmpty();
     expect($responseData->success)->toBeFalse();
     expect($responseData->message)->toEqual('Validation failed!');
-    expect(count((array) $responseData->errors))->toEqual(4);
+    expect(count((array) $responseData->errors))->toEqual(5);
     expect($responseData->errors->amount[0])->toEqual('The amount must be a number');
     expect($responseData->errors->buyer[0])->toEqual('The buyer may not be greater than 20 characters');
     expect($responseData->errors->buyer_email[0])->toEqual('The buyer_email must be a valid email address');
@@ -43,12 +43,14 @@ it('success-validate', function () {
         'buyer_ip' => '127.0.0.1',
         'entry_at' => date('Y-m-d'),
         'hash_key' => hash('sha512', '123456', 'salt'),
-
+        'entry_by' => 1,
     ]);
 
     $responseData = json_decode($response);
 
-    expect($responseData)->toBeNull();
+    expect($responseData->success)->toBeTrue();
+
+    expect($responseData->message)->toEqual('Buyer created successfully!');
 
 });
 
