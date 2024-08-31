@@ -51,7 +51,7 @@ cp .env.example .env
 Set the `APP_URL` variable in the `.env` file to the URL of the application on your local machine. For example: ``http://buyer-registration.xyz``.
 
 
-#### 4. Database configuration
+#### Database configuration
 
 1. Create a new `database` in your MySQL.
 
