@@ -26,7 +26,7 @@ Follow these steps to set up the project on your local machine:
 git clone https://github.com/csemazharul/buyer-registration.git
 ```
 
-### 2. Install Dependencies
+## 2. Install Dependencies
 
 Navigate into the project directory and install the PHP dependencies using Composer:
 
@@ -38,7 +38,7 @@ cd buyer-registration
 composer install
 ```
 
-### 3. Configure Environment Variables
+## 3. Configure Environment Variables
 
 Create a new file named `.env` in the project root and copy the contents of `.env.example` into it:
 
@@ -49,9 +49,9 @@ cp .env.example .env
 #### Application URL
 
 Set the `APP_URL` variable in the `.env` file to the URL of the application on your local machine. For example: ``http://buyer-registration.xyz``.
-```bash
 
-## 4. Database configuration
+
+#### 4. Database configuration
 
 1. Create a new `database` in your MySQL.
 
